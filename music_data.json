@@ -1,0 +1,116 @@
+{
+  "playlists": [
+    {
+      "id": 1,
+      "name": "Synthwave Nights",
+      "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop",
+      "tracks": [
+        {
+          "id": 1,
+          "title": "Midnight Drive",
+          "artist": "Neon Pulse",
+          "album": "Electric Dreams",
+          "duration": "4:23",
+          "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"
+        },
+        {
+          "id": 2,
+          "title": "Cyber City",
+          "artist": "Digital Horizon",
+          "album": "Future Nights",
+          "duration": "3:47",
+          "cover": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=300&h=300&fit=crop"
+        },
+        {
+          "id": 3,
+          "title": "Neon Glow",
+          "artist": "Synthwave Collective",
+          "album": "Retro Future",
+          "duration": "5:12",
+          "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Dark Ambient",
+      "cover": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop",
+      "tracks": [
+        {
+          "id": 4,
+          "title": "Shadow Realm",
+          "artist": "Dark Matter",
+          "album": "Void",
+          "duration": "6:34",
+          "cover": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop"
+        },
+        {
+          "id": 5,
+          "title": "Deep Space",
+          "artist": "Cosmic Drift",
+          "album": "Interstellar",
+          "duration": "7:21",
+          "cover": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=300&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Electronic Vibes",
+      "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop",
+      "tracks": [
+        {
+          "id": 6,
+          "title": "Digital Rain",
+          "artist": "Matrix Sound",
+          "album": "Code",
+          "duration": "4:15",
+          "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop"
+        },
+        {
+          "id": 7,
+          "title": "Bass Drop",
+          "artist": "Heavy Electronics",
+          "album": "Low End",
+          "duration": "3:33",
+          "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"
+        }
+      ]
+    }
+  ],
+  "recent_tracks": [
+    {
+      "id": 1,
+      "title": "Midnight Drive",
+      "artist": "Neon Pulse",
+      "album": "Electric Dreams",
+      "duration": "4:23",
+      "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"
+    },
+    {
+      "id": 4,
+      "title": "Shadow Realm",
+      "artist": "Dark Matter",
+      "album": "Void",
+      "duration": "6:34",
+      "cover": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop"
+    }
+  ],
+  "featured_artists": [
+    {
+      "name": "Neon Pulse",
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop",
+      "genre": "Synthwave"
+    },
+    {
+      "name": "Dark Matter",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop",
+      "genre": "Dark Ambient"
+    },
+    {
+      "name": "Digital Horizon",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=200&h=200&fit=crop",
+      "genre": "Electronic"
+    }
+  ]
+}

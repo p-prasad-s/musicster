@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Glass Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="app">
+        <header class="app-header">
+            <h1>Neon Glass Music</h1>
+            <p>Premium audio experience</p>
+        </header>
+
+        <!-- Main Player Section -->
+        <section class="main-player glass-panel">
+            <div class="player-content">
+                <div class="album-art">
+                    <img id="current-album-art" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop" alt="Album Art">
+                    <div class="album-overlay"></div>
+                </div>
+                <div class="track-info">
+                    <h2 id="current-title">Midnight Drive</h2>
+                    <p id="current-artist">Neon Pulse</p>
+                    <p id="current-album">Electric Dreams</p>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn" id="shuffle-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn" id="prev-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="19 20 9 12 19 4 19 20"/>
+                            <line x1="5" y1="19" x2="5" y2="5"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn play-btn" id="play-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn" id="next-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 4 15 12 5 20 5 4"/>
+                            <line x1="19" y1="5" x2="19" y2="19"/>
+                        </svg>
+                    </button>
+                    <button class="control-btn" id="repeat-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="17 1 21 5 17 9"/>
+                            <path d="M3 11V9a4 4 0 014-4h14"/>
+                            <polyline points="7 23 3 19 7 15"/>
+                            <path d="M21 13v2a4 4 0 01-4 4H3"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="progress-section">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <div class="progress-handle" id="progress-handle"></div>
+                    </div>
+                    <span id="total-time">4:23</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Visualizer -->
+        <section class="visualizer-section glass-panel">
+            <div class="visualizer-header">
+                <h3>Audio Visualizer</h3>
+                <div class="visualizer-controls">
+                    <button class="viz-mode-btn active" data-mode="bars">Bars</button>
+                    <button class="viz-mode-btn" data-mode="circular">Circular</button>
+                    <button class="viz-mode-btn" data-mode="wave">Wave</button>
+                </div>
+            </div>
+            <div class="visualizer-container">
+                <canvas id="visualizer-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- Library Sections -->
+        <section class="library-section">
+            <div class="section-header">
+                <h3>Recently Played</h3>
+            </div>
+            <div class="track-grid" id="recent-tracks"></div>
+        </section>
+
+        <section class="library-section">
+            <div class="section-header">
+                <h3>Your Playlists</h3>
+            </div>
+            <div class="playlist-grid" id="playlists"></div>
+        </section>
+
+        <section class="library-section">
+            <div class="section-header">
+                <h3>Featured Artists</h3>
+            </div>
+            <div class="artist-grid" id="featured-artists"></div>
+        </section>
+
+        <!-- Search Interface -->
+        <section class="search-section glass-panel">
+            <div class="search-header">
+                <h3>Search</h3>
+            </div>
+            <div class="search-container">
+                <label class="search-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search tracks, artists, albums...">
+                </label>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="tracks">Tracks</button>
+                    <button class="filter-btn" data-filter="artists">Artists</button>
+                    <button class="filter-btn" data-filter="albums">Albums</button>
+                </div>
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </section>
+
+        <!-- Equalizer Settings -->
+        <section class="equalizer-section glass-panel">
+            <div class="eq-header">
+                <h3>Equalizer</h3>
+                <div class="eq-presets">
+                    <select id="eq-presets">
+                        <option value="flat">Flat</option>
+                        <option value="rock">Rock</option>
+                        <option value="pop">Pop</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="classical">Classical</option>
+                        <option value="jazz">Jazz</option>
+                    </select>
+                </div>
+            </div>
+            <div class="eq-controls">
+                <div class="eq-band" data-freq="32">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>32Hz</label>
+                </div>
+                <div class="eq-band" data-freq="64">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>64Hz</label>
+                </div>
+                <div class="eq-band" data-freq="125">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>125Hz</label>
+                </div>
+                <div class="eq-band" data-freq="250">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>250Hz</label>
+                </div>
+                <div class="eq-band" data-freq="500">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>500Hz</label>
+                </div>
+                <div class="eq-band" data-freq="1k">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>1kHz</label>
+                </div>
+                <div class="eq-band" data-freq="2k">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>2kHz</label>
+                </div>
+                <div class="eq-band" data-freq="4k">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>4kHz</label>
+                </div>
+                <div class="eq-band" data-freq="8k">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>8kHz</label>
+                </div>
+                <div class="eq-band" data-freq="16k">
+                    <input type="range" min="-12" max="12" value="0" class="eq-slider">
+                    <label>16kHz</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme Customization -->
+        <section class="theme-section glass-panel">
+            <div class="theme-header">
+                <h3>Color Theme</h3>
+            </div>
+            <div class="theme-controls">
+                <div class="hue-control">
+                    <label for="hue1">Primary Hue</label>
+                    <input type="range" id="hue1" min="0" max="360" value="255">
+                </div>
+                <div class="hue-control">
+                    <label for="hue2">Secondary Hue</label>
+                    <input type="range" id="hue2" min="0" max="360" value="222">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Context Menu -->
+    <aside id="context-menu" class="menu-hidden">
+        <span class="shine shine-top"></span>
+        <span class="shine shine-bottom"></span>
+        <span class="glow glow-top"></span>
+        <span class="glow glow-bottom"></span>
+        <span class="glow glow-bright glow-top"></span>
+        <span class="glow glow-bright glow-bottom"></span>
+        
+        <div class="menu-inner">
+            <section>
+                <header>Quick Actions</header>
+                <ul>
+                    <li class="menu-item selected" data-action="play">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        Play Track
+                    </li>
+                    <li class="menu-item" data-action="add-playlist">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9"/>
+                        </svg>
+                        Add to Playlist
+                    </li>
+                    <li class="menu-item" data-action="share">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                            <polyline points="16 6 12 2 8 6"/>
+                            <line x1="12" y1="2" x2="12" y2="15"/>
+                        </svg>
+                        Share Track
+                    </li>
+                </ul>
+            </section>
+            
+            <hr>
+            
+            <section>
+                <header>Settings</header>
+                <ul>
+                    <li class="menu-item" data-action="settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6"/>
+                            <path d="M12 7a5 5 0 100 10 5 5 0 000-10z"/>
+                        </svg>
+                        Settings
+                    </li>
+                    <li class="menu-item" data-action="about">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+                            <path d="M12 17h.01"/>
+                        </svg>
+                        About
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </aside>
+
+    <script src="app.js"></script>
+</body>
+</html>
